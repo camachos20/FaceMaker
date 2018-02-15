@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.camachos20.facemaker.MainActivity"
+    tools:layout_editor_absoluteY="89dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.example.camachos20.facemaker.Face
+                android:id="@+id/faceSurfaceView"
+                android:layout_width="500dp"
+                android:layout_height="550dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/white" />
+
+            <Button
+                android:id="@+id/buttRandom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Random Face!" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rGroupFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:layout_marginTop="60dp">
+
+                <TextView
+                    android:id="@+id/tvFeaturePick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Facial feature to be modified:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radButtHair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Hair"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radButtSkin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Skin"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radButtEyes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eyes"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            /**
+            External Citation
+            Date: 13 February 2018
+            Problem: did not know how to make it so you can only choose one radio button at a
+            time
+            Resource:
+            https://stackoverflow.com/questions/37313559/how-to-set-only-one-radiobutton-can-be-selected-at-the-time-in-radiogroup
+            Solution: I learned that I need to use a radioGroup to group them
+            */
+
+
+            <TextView
+                android:id="@+id/tvColorPick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Modify color of selected feature:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvRed"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Red:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvGreen"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Green:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvBlue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Blue:"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvHairstyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose hairstyle:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinnerHairstyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:entries="@array/spinnerItems" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

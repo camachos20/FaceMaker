@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerItems">
+        <item>Bun</item>
+        <item>Bad Toupee</item>
+        <item>Mohawk</item>
+
+
+    </string-array>
+
+    /**
+    External Citation
+    Date:     13 February 2018
+    Problem:  did not know how to use spinners or set the options for spinners
+    Resource:
+    https://stackoverflow.com/questions/5241660/how-can-i-add-items-to-a-spinner-in-android
+    Solution: I used the example code from this post.
+    */
+
+</resources>

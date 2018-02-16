@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Retrieve references to relevant views
+        //set up text views, seek bars, and radio group
         TextView tvRed = (TextView)findViewById(R.id.tvRed);
         TextView tvGreen = (TextView)findViewById(R.id.tvGreen);
         TextView tvBlue = (TextView)findViewById(R.id.tvBlue);
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         SeekBar greenSeekBar = (SeekBar)findViewById(R.id.seekBarGreen);
         SeekBar blueSeekBar = (SeekBar)findViewById(R.id.seekBarBlue);
 
+
         RadioGroup myRadioGroup = (RadioGroup)findViewById(R.id.rGroupFeatures);
         myRadioGroup.check(myFace.getRadButt());
-        
         if(myFace.getRadButt()==R.id.radButtEyes)
         {
             redSeekBar.setProgress(myFace.getEyeRedVal());
@@ -66,9 +66,11 @@ public class MainActivity extends AppCompatActivity {
             
         }
 
+        //set up spinner
         Spinner hairSpinner = (Spinner) findViewById(R.id.spinnerHairstyle);
         hairSpinner.setSelection(myFace.getHairStyle());
 
+        //set up button
         Button randomButt = (Button)findViewById(R.id.buttRandom);
 
         //register an instance of listener class with the view

@@ -53,7 +53,10 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
     }
 
 
-    //radio group listener
+    /**radio group listener updates seekbars and textviews for the corresponding
+     * selected facial feature
+     * */
+
     @Override
     public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
         if (checkedId == R.id.radButtEyes)
@@ -159,13 +162,11 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        //if red sb is changed
+        /**if red sb is changed, update corresponding txt view, check which radio button is pressed,
+         * and update corresponding color
+        */
         if(seekBar.getId()==R.id.seekBarRed) {
-            for (SeekBar sb : allSBs) {
-                if (sb.getId() == seekBar.getId()) {
-                    sb.setProgress(progress);
-                }
-            }
+
             for (TextView tv : allTVs) {
                 if (tv.getId() == R.id.tvRed) {
                     tv.setText("Red: " + progress);
@@ -186,13 +187,9 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
             }
 
         }
-        //if green sb changed
-        else if(seekBar.getId()==R.id.seekBarGreen) {
-            for (SeekBar sb : allSBs) {
-                if (sb.getId() == seekBar.getId()) {
-                    sb.setProgress(progress);
-                }
-            }
+        /**if green sb is changed, update corresponding txt view, check which radio button is pressed,
+         * and update corresponding color
+         */        else if(seekBar.getId()==R.id.seekBarGreen) {
             for (TextView tv : allTVs) {
                 if (tv.getId() == R.id.tvGreen) {
                     tv.setText("Green: " + progress);
@@ -213,14 +210,10 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
                 myFace.setSkinColor(myFace.getSkinRedVal(),progress,myFace.getSkinBlueVal());
             }
         }
-        //if blue sb changed
+        /**if blue sb is changed, update corresponding txt view, check which radio button is pressed,
+         * and update corresponding color
+         */
         else if(seekBar.getId()==R.id.seekBarBlue) {
-            for (SeekBar sb : allSBs) {
-                if (sb.getId() == seekBar.getId()) {
-                    sb.setProgress(progress);
-                }
-
-            }
             for (TextView tv : allTVs) {
                 if (tv.getId() == R.id.tvBlue) {
                     tv.setText("Blue: " + progress);
@@ -258,6 +251,7 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        //check which hairstyle is selected and set the face's hairstyle int
         if (parent.getItemAtPosition(position).toString().equalsIgnoreCase("Bun"))
         {
             myFace.setHairStyle(0);
@@ -273,6 +267,7 @@ public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarCha
 
     }
 
+    //initialize spinner selection
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         if(myFace.getHairStyle()==0)

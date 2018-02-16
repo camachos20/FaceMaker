@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 
 
 /**
+ * @author Stephanie Camacho
  * Created by Stephanie on 2/11/18.
  */
 public class Face extends SurfaceView {

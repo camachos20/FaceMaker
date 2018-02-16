@@ -10,6 +10,11 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * @author Stephanie Camacho
+ * Created by Stephanie on 2/11/18.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

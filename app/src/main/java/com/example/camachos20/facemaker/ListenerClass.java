@@ -14,7 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by camachos20 on 2/15/2018.
+ * @author Stephanie Camacho
+ * Created by Stephanie on 2/11/18.
  */
 
 public class ListenerClass implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {

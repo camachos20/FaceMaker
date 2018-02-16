@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
  */
 public class Face extends SurfaceView {
 
+    //private variables
     private int skinRedVal;
     private int skinGreenVal;
     private int skinBlueVal;
@@ -127,60 +128,6 @@ public class Face extends SurfaceView {
         radButt = value;
     }
 
-    public void setSkinRedVal(int value)
-    {
-        skinRedVal = value;
-        setSkinColor(value, getSkinGreenVal(),getSkinBlueVal());
-
-    }
-    public void setSkinGreenVal(int value)
-    {
-        skinGreenVal= value;
-        setSkinColor(getSkinRedVal(),value,getSkinBlueVal());
-
-    }
-    public void setSkinBlueVal(int value)
-    {
-        skinBlueVal= value;
-        setSkinColor(getSkinRedVal(),getSkinGreenVal(),value);
-
-    }
-    public void setEyeRedVal(int value)
-    {
-        eyeRedVal= value;
-        setEyeColor(value,getEyeGreenVal(),getEyeBlueVal());
-
-    }
-    public void setEyeGreenVal(int value)
-    {
-        eyeGreenVal= value;
-        setEyeColor(getEyeRedVal(),value,getEyeBlueVal());
-
-    }
-    public void setEyeBlueVal(int value)
-    {
-        eyeBlueVal= value;
-        setEyeColor(getEyeRedVal(),getEyeGreenVal(),value);
-
-    }
-    public void setHairRedVal(int value)
-    {
-        hairRedVal= value;
-        setHairColor(value,getHairGreenVal(),getHairBlueVal());
-
-    }
-    public void setHairGreenVal(int value)
-    {
-        hairGreenVal= value;
-        setHairColor(getHairRedVal(),value,getHairBlueVal());
-
-    }
-    public void setHairBlueVal(int value)
-    {
-        hairBlueVal= value;
-        setHairColor(getHairRedVal(),getHairGreenVal(),value);
-
-    }
     public void setHairColor(int r, int g, int b)
     {
         hairColor=Color.rgb(r,g,b);
@@ -206,7 +153,7 @@ public class Face extends SurfaceView {
     
 
 
-
+    //sets variables to random ints
     public void randomize(){
 
         skinRedVal = (int) (Math.random()*256);
@@ -224,7 +171,7 @@ public class Face extends SurfaceView {
         hairColor = Color.rgb(hairRedVal,hairGreenVal,hairBlueVal);
         hairStyle = (int) ((Math.random()*3));
         radButt = (int) ((Math.random()*3));
-        invalidate();
+        this.invalidate();
 
         /**
          External Citation
@@ -236,10 +183,10 @@ public class Face extends SurfaceView {
 
     }
 
-    //getters and setters
 
 
 
+    //on draw draws the face onto the given canvas
     @Override
     public void onDraw(Canvas canvas) {
 
@@ -285,7 +232,7 @@ public class Face extends SurfaceView {
 
     }
 
-
+    //draws hair on given canvas based on hairStyleInt
     public void drawHair(Canvas canvas, int hairStyleInt)
     {
         Paint hairPaint = new Paint();

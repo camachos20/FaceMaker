@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
-
+import android.widget.RadioGroup;
 
 
 /**
@@ -14,11 +14,25 @@ import android.view.SurfaceView;
  */
 public class Face extends SurfaceView {
 
-    int skinColor;
-    int eyeColor;
-    int hairColor;
-    int hairStyle;
-    String currFeature;
+    private int skinRedVal;
+    private int skinGreenVal;
+    private int skinBlueVal;
+    private int eyeRedVal;
+    private int eyeGreenVal;
+    private int eyeBlueVal;
+    private int hairRedVal;
+    private int hairGreenVal;
+    private int hairBlueVal;
+    private int hairColor;
+    private int eyeColor;
+    private int skinColor;
+
+    private int hairStyle;
+    private int radButt;
+
+
+
+
 
     public Face(Context context){
         super(context);
@@ -30,7 +44,6 @@ public class Face extends SurfaceView {
         super(context,attrs);
         setWillNotDraw(false);
         randomize();
-
     }
 
     public Face(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -43,29 +56,196 @@ public class Face extends SurfaceView {
     public Face(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
         super(context, attrs, defStyleAttr, defStyleRes);
         setWillNotDraw(false);
+        randomize();
 
     }
 
+    //getters and setters
+
+    public int getRadButt()
+    {
+        if(radButt==0)
+        {
+            return R.id.radButtEyes;
+        }
+        else if (radButt==1)
+        {
+            return R.id.radButtHair;
+        }
+        else if (radButt==2)
+        {
+            return R.id.radButtSkin;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    public int getSkinRedVal()
+    {
+        return skinRedVal;
+    }
+    public int getSkinGreenVal()
+    {
+        return skinGreenVal;
+    }
+    public int getSkinBlueVal()
+    {
+        return skinBlueVal;
+    }
+    public int getEyeRedVal()
+    {
+        return eyeRedVal;    
+    }
+    public int getEyeGreenVal()
+    {
+        return eyeGreenVal;
+    }
+    public int getEyeBlueVal()
+    {
+        return eyeBlueVal;
+    }
+    public int getHairRedVal()
+    {
+        return hairRedVal;
+    }
+    public int getHairGreenVal()
+    {
+        return hairGreenVal;
+    }
+    public int getHairBlueVal()
+    {
+        return hairBlueVal;
+    }
+
+    public int getHairStyle()
+    {
+        return hairStyle;
+    }
+    public void setRadButt(int value)
+    {
+        radButt = value;
+    }
+
+    public void setSkinRedVal(int value)
+    {
+        skinRedVal = value;
+        setSkinColor(value, getSkinGreenVal(),getSkinBlueVal());
+
+    }
+    public void setSkinGreenVal(int value)
+    {
+        skinGreenVal= value;
+        setSkinColor(getSkinRedVal(),value,getSkinBlueVal());
+
+    }
+    public void setSkinBlueVal(int value)
+    {
+        skinBlueVal= value;
+        setSkinColor(getSkinRedVal(),getSkinGreenVal(),value);
+
+    }
+    public void setEyeRedVal(int value)
+    {
+        eyeRedVal= value;
+        setEyeColor(value,getEyeGreenVal(),getEyeBlueVal());
+
+    }
+    public void setEyeGreenVal(int value)
+    {
+        eyeGreenVal= value;
+        setEyeColor(getEyeRedVal(),value,getEyeBlueVal());
+
+    }
+    public void setEyeBlueVal(int value)
+    {
+        eyeBlueVal= value;
+        setEyeColor(getEyeRedVal(),getEyeGreenVal(),value);
+
+    }
+    public void setHairRedVal(int value)
+    {
+        hairRedVal= value;
+        setHairColor(value,getHairGreenVal(),getHairBlueVal());
+
+    }
+    public void setHairGreenVal(int value)
+    {
+        hairGreenVal= value;
+        setHairColor(getHairRedVal(),value,getHairBlueVal());
+
+    }
+    public void setHairBlueVal(int value)
+    {
+        hairBlueVal= value;
+        setHairColor(getHairRedVal(),getHairGreenVal(),value);
+
+    }
+    public void setHairColor(int r, int g, int b)
+    {
+        hairColor=Color.rgb(r,g,b);
+        invalidate();
+    }
+    public void setEyeColor(int r, int g, int b)
+    {
+        eyeColor=Color.rgb(r,g,b);
+        invalidate();
+    }
+    public void setSkinColor(int r, int g, int b)
+    {
+        skinColor=Color.rgb(r,g,b);
+        invalidate();
+    }
+    public void setHairStyle(int hairInt)
+    {
+        hairStyle=hairInt;
+        invalidate();
+    }
+    
+    
+    
 
 
 
     public void randomize(){
-        this.hairStyle = (int) (Math.random() *3);
-        this.skinColor = Color.rgb((int) (Math.random()*256),(int) (Math.random()*256), (int)(Math.random()*256));
-        this.eyeColor = Color.rgb((int) (Math.random()*256),(int) (Math.random()*256), (int)(Math.random()*256));
-        this.hairColor = Color.rgb((int) (Math.random()*256),(int) (Math.random()*256), (int)(Math.random()*256));
+
+        skinRedVal = (int) (Math.random()*256);
+        skinGreenVal= (int) (Math.random()*256);
+        skinBlueVal= (int) (Math.random()*256);
+        eyeRedVal= (int) (Math.random()*256);
+        eyeGreenVal= (int) (Math.random()*256);
+        eyeBlueVal= (int) (Math.random()*256);
+        hairRedVal= (int) (Math.random()*256);
+        hairGreenVal= (int) (Math.random()*256);
+        hairBlueVal= (int) (Math.random()*256);
+        hairStyle = (int) (Math.random() *3);
+        skinColor = Color.rgb(skinRedVal,skinGreenVal,skinBlueVal);
+        eyeColor = Color.rgb(eyeRedVal,eyeGreenVal,eyeBlueVal);
+        hairColor = Color.rgb(hairRedVal,hairGreenVal,hairBlueVal);
+        hairStyle = (int) ((Math.random()*3));
+        radButt = (int) ((Math.random()*3));
         invalidate();
 
-
+        /**
+         External Citation
+         Date: 13 February 2018
+         Problem: did not know how to get the canvas to redraw
+         Resource: https://developer.android.com/reference/android/view/View.html
+         Solution: I learned that I need to call invalidate()
+         */
 
     }
+
+    //getters and setters
+
+
 
     @Override
     public void onDraw(Canvas canvas) {
 
         //draw head
         Paint skinPaint = new Paint ();
-        skinPaint.setColor(this.skinColor);
+        skinPaint.setColor(skinColor);
         canvas.drawOval(100.0f, 150.0f, 850.0f, 1000.0f, skinPaint);
 
         //draw eyes
@@ -75,7 +255,7 @@ public class Face extends SurfaceView {
         canvas.drawOval(600.0f, 350.0f,700.0f,500.0f,whitePaint);
 
         Paint eyePaint = new Paint();
-        eyePaint.setColor(this.eyeColor);
+        eyePaint.setColor(eyeColor);
         canvas.drawOval(270.0f, 370.0f, 330.0f, 480.0f, eyePaint);
         canvas.drawOval( 620.0f, 370.0f, 680.0f, 480.0f, eyePaint);
 
@@ -98,7 +278,7 @@ public class Face extends SurfaceView {
 
 
         //draw hair
-        drawHair(canvas);
+        drawHair(canvas, hairStyle);
 
 
 
@@ -106,12 +286,12 @@ public class Face extends SurfaceView {
     }
 
 
-    public void drawHair(Canvas canvas)
+    public void drawHair(Canvas canvas, int hairStyleInt)
     {
         Paint hairPaint = new Paint();
-        hairPaint.setColor(this.hairColor);
+        hairPaint.setColor(hairColor);
 
-        if (this.hairStyle == 0)
+        if (hairStyleInt == 0)
         {
             //draw bun
             canvas.drawArc(170.0f,150.0f,780.0f, 530.0f,180.0f,180.0f,true, hairPaint);
@@ -119,7 +299,7 @@ public class Face extends SurfaceView {
 
 
         }
-        else if (this.hairStyle == 1)
+        else if (hairStyleInt == 1)
         {
             //draw a really bad toupee
             hairPaint.setStyle(Paint.Style.STROKE);
@@ -135,8 +315,9 @@ public class Face extends SurfaceView {
             }
 
         }
-        else if (this.hairStyle == 2)
+        else if (hairStyleInt == 2)
         {
+            //draw a mohawk
             hairPaint.setStrokeWidth(20.0f);
             float[] arr = {350, 200, 330, 50,
                     371, 205, 351, 45,
